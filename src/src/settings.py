@@ -125,3 +125,8 @@ MEDIA_ROOT = u'/home/krovlyastroy/src/media'
 MEDIA_URL = '/media/'
 STATIC_ROOT = u'/home/krovlyastroy/src/static'
 STATIC_URL = '/static/'
+
+try:
+    from .settings_local import *
+except ImportError:
+    print("You don't provide local settings")

@@ -1,8 +1,14 @@
 .gitconfig
 .bashrc
 .local/
+*_local*
 .my.cnf
 .profile
 .pythonstartup.py
 .vimrc
 .virtualenvs/
+.idea/
+venv/
+
+static/admin/
+__pycache__/
