@@ -1,0 +1,8 @@
+.gitconfig
+.bashrc
+.local/
+.my.cnf
+.profile
+.pythonstartup.py
+.vimrc
+.virtualenvs/
