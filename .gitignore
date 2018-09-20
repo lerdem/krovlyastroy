@@ -12,3 +12,5 @@ venv/
 
 static/admin/
 __pycache__/
+
+*.sqlite3

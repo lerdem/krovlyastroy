@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '583c*qq^3hc00zc@n0+xp^8mo-sb5h-pvs*%t&%h(br&r_wwb6'
+SECRET_KEY = 'top secret key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'krovlyastroy.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -126,7 +126,14 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = u'/home/krovlyastroy/src/static'
 STATIC_URL = '/static/'
 
-try:
-    from .settings_local import *
-except ImportError:
-    print("You don't provide local settings")
+if DEBUG:
+    try:
+        from .settings_dev import *
+    except ImportError:
+        print("You don't provide development settings")
+else:
+    try:
+        from .settings_local import *
+    except ImportError:
+        print("You don't provide local settings")
+
