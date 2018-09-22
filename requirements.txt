@@ -1,2 +1,4 @@
 django==2.1
 mysqlclient
+requests
+ipaddress
