@@ -17,4 +17,6 @@ def hello(request):
     else:
         return HttpResponseForbidden('Permission denied.')
 
-    return HttpResponse('pong')
+    event = request.META.get('HTTP_X_GITHUB_EVENT', 'ping')
+
+    return HttpResponse(event)
