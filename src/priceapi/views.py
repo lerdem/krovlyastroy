@@ -19,6 +19,6 @@ def hello(request):
 
     event = request.META.get('HTTP_X_GITHUB_EVENT', 'ping')
     print(event)
-    # ping
+    # ping 1
 
     return HttpResponse(event)
