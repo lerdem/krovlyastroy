@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+
+
+<table class="table table-bordered table-responsive-sm table-js">
+  <caption>Цены на профнастил</caption>
+  <thead>
+  <tr>
+    <th scope="col" rowspan="2">Наименование</th>
+    <th scope="col" rowspan="2">Толщина</th>
+    <th scope="col" rowspan="2">Покрытие</th>
+    <th scope="col"colspan="3">Цена грн/м2</th>
+  </tr>
+  <tr>
+    <td>до 50</td>
+    <td>50-100</td>
+    <td>100+</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td rowspan="1">Профнастил НС-8</td>
+    <td>0.35</td>
+    <td>3D Декоративный</td>
+    <td>168.00</td>
+    <td>161.00</td>
+    <td>154.00</td>
+  </tr>
+  <tr>
+    <td rowspan="5">Профнастил ПК-15</td>
+    <td>0.35</td>
+    <td>Цинк</td>
+    <td>132.00</td>
+  </tr>
+  <tr>
+    <td>0.40</td>
+    <td>3D Декоративный</td>
+    <td>180.00</td>
+  </tr>
+  <tr>
+    <td>0.40</td>
+    <td>Полиестер матовый PEMA</td>
+    <td>148.80</td>
+  </tr>
+  <tr>
+    <td>0.45</td>
+    <td>Полиестер PE</td>
+    <td>138.00</td>
+  </tr>
+  <tr>
+    <td>0.50</td>
+    <td>Цинк</td>
+    <td>144.00</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Профнастил НС-20</td>
+    <td>0.30</td>
+    <td>Цинк</td>
+    <td>26.40</td>
+  </tr>
+  <tr>
+    <td>0.40</td>
+    <td>Полиестер матовый PEMA</td>
+    <td>39.59</td>
+  </tr>
+  <tr>
+    <td rowspan="1">Металлочерепица ПК-25</td>
+    <td>0.35</td>
+    <td>Полиестер PE</td>
+    <td>266.40</td>
+  </tr>
+  </tbody>
+</table>
+
+<script>
+  $.get('http://http://0d41c2c6.ngrok.io/api/common-info/', function (data) {
+      console.log(data)
+  });
+
+  var tableMask = `
+    <table class="table table-bordered table-responsive-sm table-js">
+      <caption>Цены на профнастил</caption>
+      <thead>
+      <tr>
+        <th scope="col" rowspan="2">Наименование</th>
+        <th scope="col" rowspan="2">Толщина</th>
+        <th scope="col" rowspan="2">Покрытие</th>
+        <th scope="col"colspan="3">Цена грн/м2</th>
+      </tr>
+      <tr>
+        <td>до 50</td>
+        <td>50-100</td>
+        <td>100+</td>
+      </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  `;
+  var style = 'vertical-align: top;';
+
+  $('.table-js').ready( function () {
+      var data = [
+  {
+    "name": "Профнастил НС-8",
+    "product_set": [
+      {
+        "height": "0.35",
+        "surface": "3D Декоративный",
+        "price": {
+          "50": "168.00",
+          "100": "161.00",
+          "1000": "154.00"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Профнастил ПК-15",
+    "product_set": [
+      {
+        "height": "0.35",
+        "surface": "Цинк",
+        "price": {
+          "50": "132.00",
+          "100": "126.50",
+          "1000": "121.00"
+        }
+      },
+      {
+        "height": "0.40",
+        "surface": "3D Декоративный",
+        "price": {
+          "50": "180.00",
+          "100": "172.50",
+          "1000": "165.00"
+        }
+      },
+      {
+        "height": "0.40",
+        "surface": "Полиестер матовый PEMA",
+        "price": {
+          "50": "148.80",
+          "100": "142.60",
+          "1000": "136.40"
+        }
+      },
+      {
+        "height": "0.45",
+        "surface": "Полиестер PE",
+        "price": {
+          "50": "138.00",
+          "100": "132.25",
+          "1000": "126.50"
+        }
+      },
+      {
+        "height": "0.50",
+        "surface": "Цинк",
+        "price": {
+          "50": "144.00",
+          "100": "138.00",
+          "1000": "132.00"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Профнастил НС-20",
+    "product_set": [
+      {
+        "height": "0.30",
+        "surface": "Цинк",
+        "price": {
+          "50": "26.40",
+          "100": "25.30",
+          "1000": "24.20"
+        }
+      },
+      {
+        "height": "0.40",
+        "surface": "Полиестер матовый PEMA",
+        "price": {
+          "50": "39.59",
+          "100": "37.94",
+          "1000": "36.29"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Металлочерепица ПК-25",
+    "product_set": [
+      {
+        "height": "0.35",
+        "surface": "Полиестер PE",
+        "price": {
+          "50": "266.40",
+          "100": "255.30",
+          "1000": "244.20"
+        }
+      }
+    ]
+  }
+];
+      var i,j,name,products,productsRow,row;
+
+      for (i = 0; i < data.length; i++) {
+          name = data[i].name;
+          products = data[i].product_set;
+          row = `<tr>
+                    <td rowspan="${products.length}">${name}
+                 </td>`;
+          for (j = 0; j < products.length; j++) {
+              productsRow = products[j];
+              row += `<td>${productsRow.height}</td>
+                      <td>${productsRow.surface}</td>
+                      <td>${productsRow.price["50"]}</td>
+                      <td>${productsRow.price["100"]}</td>
+                      <td>${productsRow.price["1000"]}</td>
+                      </tr>`;
+              console.log(row);
+              row = '<tr>'
+          }
+          row = ''
+      }
+
+  })
+</script>
+
+</body>
+</html>
+
+
