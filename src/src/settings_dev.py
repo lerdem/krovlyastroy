@@ -9,6 +9,7 @@ DATABASES = {
     }
 }
 
+# https://github.com/ottoyiu/django-cors-headers/#cors_origin_whitelist
 CORS_ORIGIN_WHITELIST = (
-    '127.0.0.1',
+    'localhost:63342',
 )
