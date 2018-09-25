@@ -8,3 +8,8 @@ DATABASES = {
         'PORT': 3306
     }
 }
+
+# https://github.com/ottoyiu/django-cors-headers/#cors_origin_whitelist
+CORS_ORIGIN_WHITELIST = (
+    'localhost:63342',
+)
