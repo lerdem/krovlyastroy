@@ -1,8 +1,9 @@
 import requests
+import collections
 from django.http import HttpResponse, HttpResponseForbidden
 from django.views.decorators.csrf import csrf_exempt
 
-from rest_framework import serializers, viewsets, mixins, filters
+from rest_framework import serializers, viewsets, mixins, filters, decorators
 from ipaddress import ip_address, ip_network
 
 from .models import Product, CommonInfo
@@ -69,11 +70,72 @@ class CommonInfoSerializer(serializers.ModelSerializer):
         )
 
 
+class SchemaOrgMarckUpSerializer(ProductSerializer):
+    # name = serializers.CharField(source='group.get_name_display')
+    name = serializers.SerializerMethodField()
+
+    def get_name(self, obj):
+        obj = obj.group
+        return '{name} {type}-{height}'.format(
+            name=obj.get_name_display(),
+            type=obj.get_type_display(),
+            height=obj.height
+        )
+
+    class Meta:
+        model = Product
+        fields = (
+            'height',
+            'surface',
+            'price',
+            'name'
+        )
+
+    def to_representation(self, instance):
+        instance = super().to_representation(instance)
+        return collections.OrderedDict({
+            "@context": "http://schema.org/",
+            "@type": "Product",
+            "name": instance['name'],
+            "description": "Купить {name} Днепр, поверхность - {surface}, цена от {max_price} грн.".format(
+                name=instance['name'],
+                surface=instance['surface'].lower(),
+                max_price=instance['price']['1000'],
+            ),
+            "brand": {
+                "@type": "Thing",
+                "name": "Кровля Строй"
+            },
+            # "aggregateRating": {
+            #     "@type": "AggregateRating",
+            #     "ratingValue": "4.4",
+            #     "ratingCount": "89"
+            # },
+            "offers": {
+                "@type": "AggregateOffer",
+                "lowPrice": instance['price']['1000'],
+                "highPrice": instance['price']['50'],
+                "priceCurrency": "UAH"
+            }
+        })
+
+
 # ViewSets define the view behavior.
 class CommonInfoViewSet(mixins.ListModelMixin,
                         viewsets.GenericViewSet):
-    queryset = CommonInfo.objects.all()
-    serializer_class = CommonInfoSerializer
+    def get_queryset(self):
+        if self.action == 'schema_org':
+            return Product.objects.all()
+        return CommonInfo.objects.all()
+
     filter_backends = (filters.OrderingFilter,)
     ordering = ('height',)
 
+    def get_serializer_class(self):
+        if self.action == 'schema_org':
+            return SchemaOrgMarckUpSerializer
+        return CommonInfoSerializer
+
+    @decorators.action(detail=False, url_name='schema-org')
+    def schema_org(self, request, *args, **kwargs):
+        return self.list(self.serializer_class)
