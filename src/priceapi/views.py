@@ -97,10 +97,12 @@ class SchemaOrgMarckUpSerializer(ProductSerializer):
             "@context": "http://schema.org/",
             "@type": "Product",
             "name": instance['name'],
-            "description": "Купить {name} Днепр, поверхность - {surface}, цена от {max_price} грн.".format(
+            "description": "Купить {name} Днепр, толщина - {height} мм, поверхность - {surface}, "
+                           "цена от {max_price} грн.".format(
                 name=instance['name'],
-                surface=instance['surface'].lower(),
+                surface=instance['surface'],
                 max_price=instance['price']['1000'],
+                height=instance['height'],
             ),
             "brand": {
                 "@type": "Thing",
