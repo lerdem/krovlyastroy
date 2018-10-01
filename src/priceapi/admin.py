@@ -12,4 +12,5 @@ class CommonInfoAdmin(admin.ModelAdmin):
     list_display = ('name', 'type', 'height')
 
 admin.site.register(CommonInfo, CommonInfoAdmin)
+admin.site.register(Product)
 # admin.site.register(models.Category, filter_horizontal=('photo',))
