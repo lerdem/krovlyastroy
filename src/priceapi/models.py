@@ -69,4 +69,3 @@ class Product(BasicModel):
             '100': 15,
             '1000': 10,
         }
-

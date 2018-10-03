@@ -150,4 +150,3 @@ else:
         from .settings_local import *
     except ImportError:
         print("You don't provide local settings")
-

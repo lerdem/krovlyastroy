@@ -33,7 +33,7 @@ function renderTable(data) {
 
   var tableMask = `
     <table class="table table-bordered table-responsive-sm table-js" style="display: none">
-      <caption>Цены на профнастил (от ${formatDate(new Date())})</caption>
+      <caption>Цены на профнастил (на ${formatDate(new Date())})</caption>
       <thead>
       <tr>
         <th scope="col" rowspan="2">Наименование</th>
