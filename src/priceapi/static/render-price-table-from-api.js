@@ -1,6 +1,6 @@
-
+var hostApi = 'https://krovlyastroy.pythonanywhere.com/';
 (function getShemaOrg() {
-  var jqxhr = $.get('http://127.0.0.1:8000/api/common-info/schema_org/', function () {
+  var jqxhr = $.get(`${hostApi}api/common-info/schema_org/`, function () {
   console.log('start fetch data')
 })
   .done(function (data) {
@@ -15,7 +15,7 @@
 })();
 
 (function getTable() {
-  var jqxhr = $.get('http://127.0.0.1:8000/api/common-info/', function () {
+  var jqxhr = $.get(`${hostApi}api/common-info/`, function () {
     console.log('start fetch data')
   })
     .done(function (data) {

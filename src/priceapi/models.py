@@ -52,8 +52,8 @@ class Product(BasicModel):
     price = models.DecimalField(max_digits=5, decimal_places=2)
 
     class Meta:
-        verbose_name_plural = 'Свойства'
-        verbose_name = 'Свойства'
+        verbose_name_plural = 'Продукты детали'
+        verbose_name = 'Продукты детали'
 
     def __str__(self):
         return '`{surface}`-{height}: {price}, грн.'.format(
