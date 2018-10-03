@@ -1,12 +1,12 @@
-import requests
 import collections
-from django.http import HttpResponse, HttpResponseForbidden
-from django.views.decorators.csrf import csrf_exempt
-
-from rest_framework import serializers, viewsets, mixins, filters, decorators
 from ipaddress import ip_address, ip_network
 
-from .models import Product, CommonInfo
+import requests
+from django.http import HttpResponse, HttpResponseForbidden
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework import decorators, filters, mixins, serializers, viewsets
+
+from .models import CommonInfo, Product
 
 
 @csrf_exempt

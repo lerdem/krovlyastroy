@@ -1,10 +1,8 @@
-from django.urls import path
 from django.conf.urls import include
-
+from django.urls import path
 from rest_framework import routers
 
 from .views import *
-
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
