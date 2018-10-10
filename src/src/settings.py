@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,6 +26,7 @@ SECRET_KEY = 'top secret key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False) == 'True'
+TESTING = 'test' in sys.argv
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
@@ -140,7 +142,7 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = u'/home/krovlyastroy/src/static'
 STATIC_URL = '/static/'
 
-if DEBUG:
+if DEBUG or TESTING:
     try:
         from .settings_dev import *
     except ImportError:
