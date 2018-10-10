@@ -33,7 +33,7 @@ class CommonInfoViewSetTests(APITestCase):
         self.assertIn('product_set', data)
         self.assertEqual('0.45', data['product_set'][0]['height'])
         self.assertEqual('Цинк', data['product_set'][0]['surface'])
-        self.assertEqual({'50': 162, '100': 155, '1000': 148}, data['product_set'][0]['price'])
+        self.assertDictEqual({'50': 162, '100': 155, '1000': 148}, data['product_set'][0]['price'])
 
     def test_get_list_schema_org(self):
         url = reverse('priceapi:common-info-schema-org')
@@ -46,5 +46,4 @@ class CommonInfoViewSetTests(APITestCase):
         self.assertIn('offers', data)
         self.assertIn('name', data)
         # TODO
-        # self.assertDictEqual()
         # https://medium.com/grammofy/testing-your-python-api-app-with-json-schema-52677fe73351
