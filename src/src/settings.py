@@ -86,6 +86,16 @@ REST_FRAMEWORK = {
     ]
 }
 
+# Database
+# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -132,16 +142,24 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = u'/home/krovlyastroy/src/static'
 STATIC_URL = '/static/'
 
-if DEBUG:
+if 'TRAVIS' in os.environ:
+    # TODO replace
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': "dev",
+            'USER': 'root',
+            'PASSWORD': '',
+            'HOST': 'localhost',
+            'PORT': ''
+        }
+    }
+    DEBUG = False
+elif DEBUG or TESTING:
     try:
         from .settings_dev import *
     except ImportError:
         print("You don't provide development settings")
-elif TESTING:
-    try:
-        from .settings_test import *
-    except ImportError:
-        print("You don't provide testing settings")
 else:
     try:
         from .settings_local import *
