@@ -144,6 +144,7 @@ STATIC_URL = '/static/'
 
 if 'TRAVIS' in os.environ:
     # TODO replace
+    print('TRAVIS')
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
