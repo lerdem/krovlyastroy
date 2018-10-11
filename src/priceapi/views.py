@@ -138,6 +138,6 @@ class CommonInfoViewSet(mixins.ListModelMixin,
             return SchemaOrgMarckUpSerializer
         return CommonInfoSerializer
 
-    @decorators.action(detail=False, url_name='schema-org')
+    @decorators.action(detail=False)
     def schema_org(self, request, *args, **kwargs):
         return self.list(self.serializer_class)
