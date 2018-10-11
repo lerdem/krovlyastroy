@@ -2,6 +2,12 @@ language: python
 python:
   - "3.5"
 
+services:
+  - mysql
+
+before_install:
+  - mysql -e 'CREATE DATABASE dev;'
+
 install:
   - pip install -r requirements-test.txt
 script:
