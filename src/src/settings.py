@@ -142,11 +142,16 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = u'/home/krovlyastroy/src/static'
 STATIC_URL = '/static/'
 
-if DEBUG or TESTING:
+if DEBUG:
     try:
         from .settings_dev import *
     except ImportError:
         print("You don't provide development settings")
+elif TESTING:
+    try:
+        from .settings_test import *
+    except ImportError:
+        print("You don't provide testing settings")
 else:
     try:
         from .settings_local import *
