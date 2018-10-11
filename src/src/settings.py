@@ -142,7 +142,21 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = u'/home/krovlyastroy/src/static'
 STATIC_URL = '/static/'
 
-if DEBUG or TESTING:
+if 'TRAVIS' in os.environ:
+    # TODO replace
+    print('TRAVIS')
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': "dev",
+            'USER': 'root',
+            'PASSWORD': '',
+            'HOST': 'localhost',
+            'PORT': ''
+        }
+    }
+    DEBUG = False
+elif DEBUG or TESTING:
     try:
         from .settings_dev import *
     except ImportError:

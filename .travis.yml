@@ -1,0 +1,14 @@
+language: python
+python:
+  - "3.5.2"
+
+services:
+  - mysql
+
+before_install:
+  - mysql -e 'CREATE DATABASE dev;'
+
+install:
+  - pip install -r requirements-test.txt
+script:
+  - ./src/manage.py test priceapi
