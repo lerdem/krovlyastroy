@@ -1,0 +1,8 @@
+language: python
+python:
+  - "3.5"
+
+install:
+  - pip install -r requirements-test.txt
+script:
+  - ./src/manage.py test priceapi
