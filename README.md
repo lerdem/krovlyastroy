@@ -1,4 +1,6 @@
-# prices api for https://krovlya-stroy.dp.ua/
+# prices api for https://krovlya-stroy.dp.ua/ 
+
+[![Travis build](https://travis-ci.com/lerdem/krovlyastroy.svg?branch=master)](https://travis-ci.com/lerdem/krovlyastroy)
 ### You can checkout the results [here](http://krovlya-stroy.dp.ua/kupit-profnastil-dnepr/)
 ### API link [here](https://krovlyastroy.pythonanywhere.com/api/)
 
