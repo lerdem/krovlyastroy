@@ -5,18 +5,13 @@ python:
 env:
   - DOCKER_COMPOSE_VERSION=1.22.0
 
-services:
-  - mysql
-
 before_install:
   - sudo rm /usr/local/bin/docker-compose
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   - docker-compose up -d
-  - docker exec krovlyastroy_db_1 mysql -e 'CREATE DATABASE travis_dev;'
-
-#  - mysql -e 'CREATE DATABASE dev;'
+  - docker exec krovlyastroy_db_1 mysql -proot -e 'CREATE DATABASE travis_dev;'
 
 install:
   - pip install -r requirements-test.txt
