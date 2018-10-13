@@ -163,7 +163,7 @@ if 'TRAVIS' in os.environ:
             'USER': 'root',
             'PASSWORD': 'root',
             'HOST': '0.0.0.0',
-            'PORT': 3306
+            'PORT': 53306
         }
     }
 
