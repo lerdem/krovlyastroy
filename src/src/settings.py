@@ -145,16 +145,28 @@ STATIC_URL = '/static/'
 if 'TRAVIS' in os.environ:
     # TODO replace
     print('TRAVIS')
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.mysql',
+    #         'NAME': "dev",
+    #         'USER': 'root',
+    #         'PASSWORD': '',
+    #         'HOST': 'localhost',
+    #         'PORT': ''
+    #     }
+    # }
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': "dev",
+            'NAME': "travis_dev",
             'USER': 'root',
-            'PASSWORD': '',
-            'HOST': 'localhost',
-            'PORT': ''
+            'PASSWORD': 'root',
+            'HOST': '0.0.0.0',
+            'PORT': 3306
         }
     }
+
     DEBUG = False
 elif DEBUG or TESTING:
     try:
