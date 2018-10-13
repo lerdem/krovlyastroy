@@ -6,7 +6,7 @@ services:
         env_file:
           - ./common.env
         ports:
-          - 3306:3306
+          - 53306:3306
 #        hostname: 127.0.0.1
 
 #        socket: /var/run/mysqld/mysqld.sock #just comment it out
