@@ -13,3 +13,6 @@
 
 - start db for dev enviropment
  `docker-compose up -d`
+
+- ENV VARS for development, set that in you activate.sh file
+`DEBUG=True`
