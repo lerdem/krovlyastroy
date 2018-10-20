@@ -7,7 +7,7 @@
 ### You can checkout the results [here](http://krovlya-stroy.dp.ua/kupit-profnastil-dnepr/)
 ### API link [here](https://krovlyastroy.pythonanywhere.com/api/)
 
-## notes:
+### notes:
  - for mysqlclient
 `sudo apt-get install python-dev default-libmysqlclient-dev`
 
@@ -16,3 +16,14 @@
 
 - ENV VARS for development, set that in you activate.sh file
 `DEBUG=True`
+
+
+### release notes:
+```console
+git tag -a <version_name> <release_commit_hash>
+git push origin <version_name>
+# on production server
+git pull origin <version_name>
+git reset --hard <version_name>
+# ... you-deploy script
+```
