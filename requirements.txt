@@ -5,3 +5,4 @@ ipaddress==1.0.22
 djangorestframework==3.8.2
 django-cors-headers==2.4.0
 isort==4.3.4
+sentry-sdk==0.4.3
