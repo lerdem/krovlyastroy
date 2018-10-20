@@ -138,17 +138,6 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = u'/home/krovlyastroy/src/static'
 STATIC_URL = '/static/'
 
-if not DEBUG:
-
-    import sentry_sdk
-    from sentry_sdk.integrations.django import DjangoIntegration
-
-    sentry_sdk.init(
-        dsn=os.environ.get('SENTRY_DSN'),
-        integrations=[DjangoIntegration()],
-        release=app_version
-    )
-
 if 'TRAVIS' in os.environ:
     # TODO replace
     print('TRAVIS')
@@ -169,6 +158,16 @@ elif DEBUG or TESTING:
     except ImportError:
         print("You don't provide development settings")
 else:
+
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        dsn=os.environ.get('SENTRY_DSN'),
+        integrations=[DjangoIntegration()],
+        release=app_version
+    )
+
     try:
         from .settings_local import *
     except ImportError:
