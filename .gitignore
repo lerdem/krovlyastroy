@@ -16,3 +16,5 @@ __pycache__/
 *.sqlite3
 .mysql_history
 .bash_history
+
+.vars
