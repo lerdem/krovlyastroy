@@ -18,11 +18,11 @@ def test(c):
     cmd.append('cd {}'.format(get_rel_path()))
     if 'TRAVIS' not in os.environ:
         cmd.append('. ../venv/bin/activate')
-
-    print(os.environ)
-    cmd.append('ls -la /home/travis/virtualenv/python3.5.2/bin')
-    cmd.append('coverage run --source=priceapi ./manage.py test')
-    cmd.append('coverage report -m')
+        cmd.append('/home/travis/virtualenv/python3.5.2/bin/coverage run --source=priceapi ./manage.py test')
+        cmd.append('/home/travis/virtualenv/python3.5.2/bin/coverage report -m')
+    else:
+        cmd.append('coverage run --source=priceapi ./manage.py test')
+        cmd.append('coverage report -m')
     cmd.append('cd -')
     cmd = ' && '.join(cmd)
     c.run(cmd)
