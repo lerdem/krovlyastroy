@@ -16,7 +16,7 @@ def get_rel_path():
 def test(c):
     cmd = list()
     cmd.append('cd {}'.format(get_rel_path()))
-    if 'TRAVIS' in os.environ:
+    if 'TRAVIS' not in os.environ:
         cmd.append('. ../venv/bin/activate')
     cmd.append('coverage run --source=priceapi ./manage.py test')
     cmd.append('coverage report -m')
