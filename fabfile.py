@@ -8,7 +8,6 @@ def get_rel_path():
     if not len(res) == 1:
         raise FileExistsError('Go to folder with manage.py')
     ret = '.'
-    os.path.e
     if os.path.dirname(res[0]):
         ret = os.path.dirname(res[0])
     return ret
