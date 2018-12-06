@@ -20,7 +20,7 @@ def test(c):
         cmd.append('. ../venv/bin/activate')
 
     print(os.environ)
-    cmd.append('ll /home/travis/virtualenv/python3.5.2/bin')
+    cmd.append('ls -la /home/travis/virtualenv/python3.5.2/bin')
     cmd.append('coverage run --source=priceapi ./manage.py test')
     cmd.append('coverage report -m')
     cmd.append('cd -')
