@@ -18,6 +18,9 @@ def test(c):
     cmd.append('cd {}'.format(get_rel_path()))
     if 'TRAVIS' not in os.environ:
         cmd.append('. ../venv/bin/activate')
+
+    print(os.environ)
+    cmd.append('which coverage')
     cmd.append('coverage run --source=priceapi ./manage.py test')
     cmd.append('coverage report -m')
     cmd.append('cd -')
