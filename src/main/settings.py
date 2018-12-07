@@ -147,7 +147,7 @@ if 'TRAVIS' in os.environ:
             'NAME': "dev",
             'USER': 'root',
             'PASSWORD': '',
-            'HOST': 'localhost',
+            'HOST': '127.0.0.1',
             'PORT': ''
         }
     }
