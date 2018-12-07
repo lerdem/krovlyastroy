@@ -21,8 +21,7 @@ def test(c):
     else:
         cmd.append('source ~/virtualenv/python3.5.2/bin/activate')
 
-    cmd.append('coverage run --source=priceapi ./manage.py test')
-    cmd.append('coverage report -m')
+    cmd.append('pytest --cov=priceapi --cov-report term-missing')
     cmd.append('cd -')
     cmd = ' && '.join(cmd)
     c.run(cmd)

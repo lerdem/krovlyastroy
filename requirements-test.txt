@@ -1,4 +1,5 @@
 -r requirements.txt
 
 factory_boy
-coverage==4.5.1
+pytest-cov
+pytest-django
