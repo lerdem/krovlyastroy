@@ -154,7 +154,7 @@ if 'TRAVIS' in os.environ:
     DEBUG = False
 elif DEBUG or TESTING:
     try:
-        from .settings_dev import *
+        from .settings_dev import *  # noqa
     except ImportError:
         print("You don't provide development settings")
 else:
@@ -169,6 +169,6 @@ else:
     )
 
     try:
-        from .settings_local import *
+        from .settings_local import *  # noqa
     except ImportError:
         print("You don't provide local settings")

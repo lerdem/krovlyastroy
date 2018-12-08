@@ -33,7 +33,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     def get_price(self, obj):
         res = {}
-        for k,v in obj.get_price_for_sale.items():
+        for k, v in obj.get_price_for_sale.items():
             percent = 1 + (v / 100)
             res[k] = int(float(obj.price) * percent)
         return res

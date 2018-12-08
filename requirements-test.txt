@@ -1,5 +1,7 @@
 -r requirements.txt
 
 factory_boy
-pytest-cov
-pytest-django
+flake8==3.6.0
+
+pytest-cov==2.6.0
+pytest-django==3.4.4
