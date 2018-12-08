@@ -11,4 +11,4 @@ before_install:
 install:
   - pip install -r requirements-test.txt
 script:
-  - ./src/manage.py test priceapi
+  - fab test

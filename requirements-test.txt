@@ -1,4 +1,5 @@
 -r requirements.txt
 
 factory_boy
-coverage
+pytest-cov
+pytest-django
