@@ -12,6 +12,7 @@ def get_rel_path():
         ret = os.path.dirname(res[0])
     return ret
 
+
 @task
 def test(c):
     cmd = list()
