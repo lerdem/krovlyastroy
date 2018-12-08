@@ -11,5 +11,5 @@ before_install:
 install:
   - pip install -r requirements-test.txt
 script:
-  - flake8 --statistics --exit-zero
+  - flake8 --statistics
   - fab test
