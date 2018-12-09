@@ -1,0 +1,6 @@
+[flake8]
+# ignore = W292
+exclude = .git,__pycache__,docs/source/conf.py,old,build,dist,venv,pytest_cache,migrations
+max-complexity = 10
+import-order-style=google
+max-line-length=120
