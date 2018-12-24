@@ -22,7 +22,7 @@ SECRET_KEY = 'top secret key'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False) == 'True'
-TESTING = 'test' in sys.argv
+TESTING = 'test' in sys.argv  # does not work with `fab test`
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
