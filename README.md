@@ -2,7 +2,7 @@
 
 [![Travis build status](https://travis-ci.com/lerdem/krovlyastroy.svg?branch=master)](https://travis-ci.com/lerdem/krovlyastroy)
 
-[![Django version](https://img.shields.io/badge/django-2.1.2-green.svg)](https://github.com/django/django/releases/tag/2.1.2)
+[![Django version](https://img.shields.io/badge/django-2.2.13-green.svg)](https://github.com/django/django/releases/tag/2.2.13)
 
 ### You can checkout the results [here](http://krovlya-stroy.dp.ua/kupit-profnastil-dnepr/)
 ### API link [here](https://krovlyastroy.pythonanywhere.com/api/)
