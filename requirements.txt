@@ -1,5 +1,5 @@
 django==2.2.13
-djangorestframework==3.9.1
+djangorestframework==3.11.2
 django-cors-headers==2.4.0
 
 ipaddress==1.0.22
